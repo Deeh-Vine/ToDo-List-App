@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do App</title>
+  <link rel="stylesheet" href="Todo.css">
+</head>
+   <body>
+      <div class="container">
+         <div class="header">
+            <div class="top-header">
+               <h1>My Tasks</h1>
+               <p>0 pending</p>
+            </div>
+            <div class="bottom-header">friday, December 5</div>
+         </div>
+         <div  class="input-div">
+            <input type="text" id="todo-input" placeholder="Enter a new todo item">
+            <input type="datetime-local" class="todo-date">
+            <button class="todo-btn">Add Todo</button>
+         </div>
+         
+         
+         <div class="todo-list"></div>
+      </div>
+      
+   </body>
+   <script>
+      const todoList= [{
+         name:'buy groceries',
+         datetime:'11/07/2025 05:11 PM'
+         },
+         {
+         name:'walk the dog',
+
+         datetime:'07/08/2025 05:13 PM'}
+      ];
+
+      const todobtn = document.querySelector('.todo-btn')
+      const todoInput = document.getElementById('todo-input')
+      const tododate = document.querySelector('.todo-date')
+      const todolist = document.querySelector('.todo-list')
+   renderList();
+      function renderList(){
+         let listcontainer= '';
+       for(let i = 0; i < todoList.length; i++){
+         let todo = todoList[i];
+         // let name = todo.name;
+         // let datetime = todo.datetime;
+         const {name, datetime} = todo;
+         listcontainer += `<p>${name} ${datetime}</p>
+         <button 
+         onclick="todoList.splice(${i}, 1);
+         renderList()
+         ">Delete</button>
+         `;
+       }
+       document.querySelector('.todo-list').innerHTML = listcontainer;
+      }
+      
+      todobtn.addEventListener('click', () => {
+         const name = todoInput.value;
+         const datetime = tododate.value;
+         
+         const todoObject = {
+            // name: name,
+            // datetime: datetime
+            name,
+            datetime
+         };
+         const pushtodo = todoList.push(todoObject);
+         renderList();
+         
+      });
+      
+   </script>
