@@ -72,7 +72,9 @@
          };
          const pushtodo = todoList.push(todoObject);
          renderList();
-         
+         if (name === '') {
+                  document.querySelector('.shipping-result').innerText = `amount cannot be less than or equal to zero`;
+               }
       });
       
    </script>
