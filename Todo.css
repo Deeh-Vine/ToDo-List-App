@@ -1,7 +1,7 @@
 :root{
       --primary: #6366f1; /* Indigo */
             --primary-hover: #4f46e5;
-            --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --background-gradient: linear-gradient(135deg, #7086e9 0%, #805aa7 100%);
             --glass-bg: rgba(255, 255, 255, 0.85);
             --text-dark: #1f2937;
             --text-light: #6b7280;
@@ -16,7 +16,7 @@
 }
 body{
    min-height: 100vh;
-   background-color: rgb(220, 243, 250);
+   background: var(--background-gradient);
    display: flex;
    justify-content: center;
    align-items: center;
@@ -108,6 +108,9 @@ body{
    width: 150px;
    color: var(--text-light);
 }
+.todo-date:hover{
+   cursor: pointer;
+}  
 .todo-btn{
    padding: 0.5rem 1rem 0.5rem 1rem;
    border-radius: 9px;
