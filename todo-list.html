@@ -8,23 +8,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">   
 </head>
    <body>
-      <div class="container">
-         <div class="header">
-            <div class="top-header">
-               <h1>My Tasks</h1>
-               <p>0 pending</p>
-            </div>
-            <div class="bottom-header">friday, December 5</div>
+         <div class="container">
+                  <div class="header">
+                     <div class="top-header">
+                        <h1>My Tasks</h1>
+                        <p>0 pending</p>
+                     </div>
+                     <div class="bottom-header">
+                        friday, December 5
+                     </div>
+                  </div>
+                  <div  class="input-div">
+                     <input type="text" id="todo-input" placeholder="Enter a new todo item">
+                     <input type="datetime-local" class="todo-date">
+                     <button class="todo-btn">Add Todo</button>
+                  </div>
+                  
+                  <div class="main">
+                     <div class="filter-buttons">
+                        <button>All</button>
+                        <button>Active</button>
+                        <button>Completed</button>
+                     </div>
+                     <div class="todo-list">
+                        
+                     </div>
+                  </div>
          </div>
-         <div  class="input-div">
-            <input type="text" id="todo-input" placeholder="Enter a new todo item">
-            <input type="datetime-local" class="todo-date">
-            <button class="todo-btn">Add Todo</button>
-         </div>
-         
-         
-         <div class="todo-list"></div>
-      </div>
+               
       
    </body>
    <script>
@@ -50,11 +61,14 @@
          // let name = todo.name;
          // let datetime = todo.datetime;
          const {name, datetime} = todo;
-         listcontainer += `<p>${name} ${datetime}</p>
-         <button 
+         listcontainer += 
+         `<div class="todo-item">${name} ${datetime}
+            <button 
          onclick="todoList.splice(${i}, 1);
          renderList()
-         ">Delete</button>
+         " class="delete-btn">Delete</button>
+            </div>
+         
          `;
        }
        document.querySelector('.todo-list').innerHTML = listcontainer;
