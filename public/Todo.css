@@ -79,6 +79,13 @@ body{
    margin-top: 1.5rem;
    position: relative;
 }
+.input-div label{
+   font-size: 0.75rem;
+   margin: 0;
+   padding: 0;
+   letter-spacing: -4;
+}
+
 #todo-input{
    background-color: rgba(246, 253, 255, 0.822);
    flex: 1;
@@ -193,8 +200,9 @@ body{
 .todo-item:hover{
    box-shadow: 0 0 10px -1px rgba(167, 167, 243, 0.7);
    .delete-btn{
-   background-color: var(--danger);
-   transform: scale(1.05);
+      color: var(--glass-bg);
+      background-color: var(--danger);
+      transform: scale(1.05);
    }
 }
 
@@ -202,7 +210,7 @@ body{
 .delete-btn{
    background-color: transparent;
    border: none;
-   color: white;
+   color: var(--danger);
    padding: 0.5rem 1rem;
    border-radius: 8px;
    font-size: 0.9rem;
@@ -232,4 +240,5 @@ body{
    .todo-item{
       gap: 0.3rem;
    }
+   
 }
